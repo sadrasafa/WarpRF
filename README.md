@@ -39,6 +39,23 @@ pip install --no-build-isolation submodules/simple-knn/
 pip install --no-build-isolation -e ./diff/ -v
 ```
 
+<details>
+
+<summary>Possible Installation Issues</summary>
+
+We have tested the code using the specified package versions. However, you may need to install PyTorch with the CUDA version that is compatible with your system.
+
+If you encounter the following error:
+```
+simple_knn.cu(90): error: identifier "FLT_MAX" is undefined
+```
+add the line
+```
+#include <float.h>
+```
+to `submodules/simple-knn/simple_knn.cu` to resolve the issue.
+</details>
+
 ## :camera_flash: Active-View Selection
 
 Download the [MipNeRF360](https://jonbarron.info/mipnerf360/) and [NeRF-Synthetic](https://www.kaggle.com/datasets/nguyenhung1903/nerf-synthetic-dataset) datasets and place them in your preferred data directory.
